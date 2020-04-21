@@ -8,9 +8,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>OhMyBlog - Admin</title>
+        <link rel="stylesheet" href="../styles/header.css ../../footer.css">
     </head>
     <body>
+        <jsp:include page="/WEB-INF/header.jsp" />
         <h1>TODO: Admin panel page</h1>
+        <jsp:include page="/WEB-INF/footer.jsp" />
     </body>
 </html>

@@ -11,6 +11,8 @@
         <title>OhMyBlog - Register</title>
     </head>
     <body>
+        <jsp:include page="/WEB-INF/header.jsp" />
         <h1>TODO: Register page</h1>
+        <jsp:include page="/WEB-INF/footer.jsp" />
     </body>
 </html>

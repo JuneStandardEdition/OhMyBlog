@@ -9,14 +9,7 @@
             30
         </session-timeout>
     </session-config>
-    <jsp-config>
-        <jsp-property-group>
-            <url-pattern>*.jsp</url-pattern>
-            <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
-        </jsp-property-group>
-    </jsp-config>
-
-    <!-- [HOME] Servlet instance -->
+        <!-- [HOME] Servlet instance -->
     <servlet>
         <servlet-name>Home</servlet-name>
         <servlet-class>servlets.Home</servlet-class>
@@ -70,5 +63,4 @@
         <servlet-name>Admin</servlet-name>
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
-    
 </web-app>

@@ -11,6 +11,8 @@
         <title>OhMyBlog - Article</title>
     </head>
     <body>
+        <jsp:include page="/WEB-INF/header.jsp" />
         <h1>TODO: Article (template)</h1>
+        <jsp:include page="/WEB-INF/footer.jsp" />
     </body>
 </html>
