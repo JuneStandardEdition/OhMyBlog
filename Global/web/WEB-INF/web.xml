@@ -9,6 +9,12 @@
             30
         </session-timeout>
     </session-config>
+    
+    <!-- DEFAULT PAGE -->
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
+
     <!-- [HOME] Servlet instance -->
     <servlet>
         <servlet-name>Home</servlet-name>
@@ -86,7 +92,7 @@
         <url-pattern>/articleManager</url-pattern>
     </servlet-mapping>
     
-        <!-- [ADMIN-COMMENT] Servlet instance -->
+    <!-- [ADMIN-COMMENT] Servlet instance -->
     <servlet>
         <servlet-name>CommentManager</servlet-name>
         <servlet-class>servlets.CommentManager</servlet-class>

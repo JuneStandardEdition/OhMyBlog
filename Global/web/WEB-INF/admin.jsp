@@ -16,12 +16,12 @@
     <body>
         <jsp:include page="/WEB-INF/header.jsp" />
         <h1>Administration Panel</h1>
-        <!-- c:if (User.getProperty(isAdmin) == true) -->
+        <!-- c:if (User.getProperty(isAdmin) && ...(isConnected) == true) -->
         <div id="adminTab">
             <ul>
-                <li><a href="/WEB-INF/usermanager.jsp">Users</a></li>
-                <li><a href="/WEB-INF/articlemanager.jsp">Articles</a></li>
-                <li><a href="/WEB-INF/commentmanager.jsp">Comments</a></li>
+                <li><a href="userManager">Users</a></li>
+                <li><a href="articleManager">Articles</a></li>
+                <li><a href="commentManager">Comments</a></li>
             </ul>
         </div>
         <jsp:include page="/WEB-INF/footer.jsp" />
