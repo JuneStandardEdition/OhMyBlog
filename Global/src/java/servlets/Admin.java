@@ -28,7 +28,6 @@ public class Admin extends HttpServlet {
         this.getServletContext().getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -65,6 +64,16 @@ public class Admin extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
+    /*
+    protected void loadUserManager(HttpServletRequest request, HttpServletResponse response) {
+    }
+
+    protected void loadArticleManager(HttpServletRequest request, HttpServletResponse response) {
+    }
+
+    protected void loadCommentManager(HttpServletRequest request, HttpServletResponse response) {
+    }
+*/
 }

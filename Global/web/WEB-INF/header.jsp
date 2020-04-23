@@ -5,7 +5,5 @@
     }
 </style>
 <header>
-    <p>
-        Header placeholder
-    </p>
+    <img src="../imgs/OhMyBlog.png" alt="Header">
 </header>

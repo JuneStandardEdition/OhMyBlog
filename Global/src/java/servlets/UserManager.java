@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ *
  * @author June
  */
-@WebServlet(name = "Article", urlPatterns = {"/Article"})
-public class Article extends HttpServlet {
+@WebServlet(name = "UserManager", urlPatterns = {"/UserManager"})
+public class UserManager extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -25,7 +26,7 @@ public class Article extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/article.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/usermanager.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

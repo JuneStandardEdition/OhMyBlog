@@ -9,7 +9,7 @@
             30
         </session-timeout>
     </session-config>
-        <!-- [HOME] Servlet instance -->
+    <!-- [HOME] Servlet instance -->
     <servlet>
         <servlet-name>Home</servlet-name>
         <servlet-class>servlets.Home</servlet-class>
@@ -62,5 +62,38 @@
     <servlet-mapping>
         <servlet-name>Admin</servlet-name>
         <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    
+    <!-- [ADMIN-USER] Servlet instance -->
+    <servlet>
+        <servlet-name>UserManager</servlet-name>
+        <servlet-class>servlets.UserManager</servlet-class>
+    </servlet>
+    <!-- [ADMIN-USER] Servlet mapping -->
+    <servlet-mapping>
+        <servlet-name>UserManager</servlet-name>
+        <url-pattern>/userManager</url-pattern>
+    </servlet-mapping>
+    
+    <!-- [ADMIN-ARTICLE] Servlet instance -->
+    <servlet>
+        <servlet-name>ArticleManager</servlet-name>
+        <servlet-class>servlets.ArticleManager</servlet-class>
+    </servlet>
+    <!-- [ADMIN-ARTICLE] Servlet mapping -->
+    <servlet-mapping>
+        <servlet-name>ArticleManager</servlet-name>
+        <url-pattern>/articleManager</url-pattern>
+    </servlet-mapping>
+    
+        <!-- [ADMIN-COMMENT] Servlet instance -->
+    <servlet>
+        <servlet-name>CommentManager</servlet-name>
+        <servlet-class>servlets.CommentManager</servlet-class>
+    </servlet>
+    <!-- [ADMIN-COMMENT] Servlet mapping -->
+    <servlet-mapping>
+        <servlet-name>CommentManager</servlet-name>
+        <url-pattern>/commentManager</url-pattern>
     </servlet-mapping>
 </web-app>

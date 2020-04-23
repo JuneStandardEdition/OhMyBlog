@@ -10,19 +10,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>OhMyBlog - Admin</title>
+        <style><jsp:include page="/styles/global.css" /></style>
         <style><jsp:include page="/styles/admin.css" /></style>
     </head>
     <body>
         <jsp:include page="/WEB-INF/header.jsp" />
         <h1>Administration Panel</h1>
         <!-- c:if (User.getProperty(isAdmin) == true) -->
-        <nav id="adminMenu">
+        <div id="adminTab">
             <ul>
-                <li class="button"><a href="<c:url value="/usrmgr" />">Users</a></li>
-                <li class="button"><a href="<c:url value="/articlemgr" />">Articles</a></li>
-                <li class="button"><a href="<c:url value="/commentmgr" />">Comments</a></li>
+                <li><a href="/WEB-INF/usermanager.jsp">Users</a></li>
+                <li><a href="/WEB-INF/articlemanager.jsp">Articles</a></li>
+                <li><a href="/WEB-INF/commentmanager.jsp">Comments</a></li>
             </ul>
-        </nav>
+        </div>
         <jsp:include page="/WEB-INF/footer.jsp" />
         <!-- /c:if
         c:otherwise
