@@ -26,12 +26,12 @@
             <form method="post" action="connexion">
                 <fieldset>
                     <legend>Edit Article</legend>
-                    <label for="title">Title <span class="requis">*</span></label>
+                    <label for="title">Title</label>
                     <input type="text" id="title" name="title" value="<c:out value="${article.title}"/>" size="20" maxlength="100" />
                     <span class="erreur">${form.erreurs['title']}</span>
                     <br />
-                    <label for="content">Content <span class="requis">*</span></label>
-                    <input type="text" id="content" name="content" value="" size="200" maxlength="5000" />
+                    <label for="content">Content</label>
+                    <input type="textarea" id="content" name="content" value="" size="200" maxlength="5000" />
                     <span class="erreur">${form.erreurs['content']}</span>
                     <br />
                     <input type="submit" value="Create" class="sansLabel" />
