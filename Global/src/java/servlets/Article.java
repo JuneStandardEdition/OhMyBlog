@@ -28,7 +28,14 @@ public class Article extends HttpServlet {
         article.setContenu("Contenu");
         article.setScore(5);
 
+        beans.Article article2 = new beans.Article();
+        article2.setId(4);
+        article2.setTitre("Corona Vie Russe");
+        article2.setContenu("Le Corona vie Russe est un petit Mamifère d'Asie.");
+        article2.setScore(5);
+
         request.setAttribute("article", article);
+        request.setAttribute("article", article2);
         request.getServletContext().getRequestDispatcher("/WEB-INF/article.jsp").forward(request, response);
     }
 
