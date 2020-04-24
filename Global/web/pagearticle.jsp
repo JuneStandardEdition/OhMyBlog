@@ -1,7 +1,6 @@
 <%-- 
     Document   : pagearticle
-    Created on : 23 avr. 2020, 08:40:18
-    Author     : stag
+    Author     : Solène
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

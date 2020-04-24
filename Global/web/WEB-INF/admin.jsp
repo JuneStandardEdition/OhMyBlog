@@ -24,6 +24,7 @@
                 <li><a href="commentManager">Comments</a></li>
             </ul>
         </div>
+        <p>All your bases are belong to us.</p>
         <jsp:include page="/WEB-INF/footer.jsp" />
         <!-- /c:if
         c:otherwise
