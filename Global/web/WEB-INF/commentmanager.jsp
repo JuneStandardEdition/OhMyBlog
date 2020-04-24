@@ -22,6 +22,25 @@
                 <li><a href="/Global/articleManager">Articles</a></li>
             </ul>
         </div>
+        <div id="cmtmngr">
+            <!-- c:if il y a des commentaires signalés -->
+            <!-- c:foreach via liste des commentaires signalés -->
+            <div>
+                <form>
+                    <span>Author: <!-- user.name --></span>
+                    <br>
+                    <span>Comment: <!-- comment.content --></span>
+                    <br>
+                    <input type="button" id="delete" name="delete" value="Delete">
+                    <input type="button" id="dismiss" name="dismiss" value="Dismiss">
+                </form>
+            </div>
+            <!-- /c:foreach -->
+            <!-- /c:if c:else -->
+            <!-- pNothing to do here.p -->
+            <!-- /c:else -->
+        </div>
+        <br>
         <jsp:include page="/WEB-INF/footer.jsp" />
         <!-- /c:if
         c:otherwise

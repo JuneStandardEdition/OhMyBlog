@@ -1,5 +1,6 @@
 package servlets;
 
+import beans.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -25,6 +26,15 @@ public class Admin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        /*
+        String name = request.getParameter("name");
+        String pwd = request.getParameter("pwd");
+        boolean isAdmin = request.getParameter("isAdmin");
+        
+        User user = new User();
+        HttpSession session = request.getSession();
+        session.setAttribute("user", user);
+        */
         this.getServletContext().getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
 

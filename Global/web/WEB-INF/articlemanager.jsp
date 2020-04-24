@@ -27,11 +27,11 @@
                 <fieldset>
                     <legend>Edit Article</legend>
                     <label for="title">Title</label>
-                    <input type="text" id="title" name="title" value="<c:out value="${article.title}"/>" size="20" maxlength="100" />
+                    <input type="text" id="title" name="title" value="<c:out value="${article.title}"/>" size="20" maxlength="100" placeholder="Title of the article..." />
                     <span class="erreur">${form.erreurs['title']}</span>
                     <br />
                     <label for="content">Content</label>
-                    <input type="textarea" id="content" name="content" value="" size="200" maxlength="5000" />
+                    <input type="textarea" id="content" name="content" value="" size="200" maxlength="5000" placeholder="Type your article..." />
                     <span class="erreur">${form.erreurs['content']}</span>
                     <br />
                     <input type="submit" value="Create" class="sansLabel" />
