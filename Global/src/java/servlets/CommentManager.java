@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author June
  */
-@WebServlet(name = "CommentManager", urlPatterns = {"/CommentManager"})
+@WebServlet(name = "CommentManager")
 public class CommentManager extends HttpServlet {
 
     /**

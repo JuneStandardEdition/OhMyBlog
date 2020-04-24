@@ -9,10 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
  * @author June
  */
-@WebServlet(name = "UserManager", urlPatterns = {"/UserManager"})
+@WebServlet(name = "UserManager")
 public class UserManager extends HttpServlet {
 
     /**

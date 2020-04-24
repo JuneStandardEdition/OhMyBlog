@@ -2,6 +2,7 @@ package DAO;
 
 import connections.SQLConnection;
 import java.sql.Connection;
+import java.util.List;
 
 /**
  * ************************************************
@@ -20,5 +21,7 @@ public interface DAO<T> {
     void delete(Integer id);
 
     void update(T T);
+    
+    List<T> getAll();
 
 }

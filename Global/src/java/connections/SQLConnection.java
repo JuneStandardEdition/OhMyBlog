@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 /**
  * ************************************************
- * @author June.QL
+ * @author June
  *************************************************
  */
 public class SQLConnection {
@@ -16,8 +16,8 @@ public class SQLConnection {
     private static final String host = "wp.ldnr.fr";
     private static final String port = "3306";
     private static final String base = "aaa";
-    private static final String login = "aaa";
-    private static final String password = "aaa";
+    private static final String login = "groupe4";
+    private static final String password = "ahngaa7kae7dahgoPhei6mieM";
     private static final String url = "jdbc:mysql://" + host + ":" + port + "/" + base;
     private static Connection c = null;
 

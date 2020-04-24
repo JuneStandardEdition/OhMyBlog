@@ -1,18 +1,21 @@
 package servlets;
 
+import DAO.UserDAO;
 import beans.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author June
  */
-@WebServlet(name = "Admin", urlPatterns = {"/Admin"})
+@WebServlet(name = "Admin")
 public class Admin extends HttpServlet {
 
     /**
@@ -26,15 +29,15 @@ public class Admin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        /*
-        String name = request.getParameter("name");
-        String pwd = request.getParameter("pwd");
-        boolean isAdmin = request.getParameter("isAdmin");
-        
-        User user = new User();
         HttpSession session = request.getSession();
-        session.setAttribute("user", user);
-        */
+        boolean isAdmin = (boolean) session.getAttribute("admin");
+        if (!isAdmin) {
+            response.sendRedirect("/index");
+            return;
+        }
+        UserDAO udao = new UserDAO();
+        List<User> users = udao.getAll();
+        request.setAttribute("users", users);
         this.getServletContext().getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
 
