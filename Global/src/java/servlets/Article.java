@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import beans.Article;
 
 /**
  *
@@ -32,7 +33,7 @@ public class Article extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Article</title>");            
+            out.println("<title>Servlet Article</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Article at " + request.getContextPath() + "</h1>");
