@@ -94,10 +94,19 @@ public class UserDAO implements DAO<User> {
         return users;
          */
     }
-    
-    // Fonction temporaire
+
+    /* Fetches an User object if the given email matches with one of the Users email
+       Returns null otherwise */
     public User findByMail(String email) {
+        getAll();
+        User u = new User();
+        for (int i = 0; i < this.udao.size(); i++) {
+            u = udao.get(i);
+            if (u.getEmail().matches(email)) {
+                return u;
+            }
+        }
         return null;
     }
-    
+
 }
