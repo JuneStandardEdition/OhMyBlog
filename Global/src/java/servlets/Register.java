@@ -42,7 +42,7 @@ public class Register extends HttpServlet {
             throws ServletException, IOException {
         RegisterFormChecker rfc = new RegisterFormChecker();
         User usr = rfc.checkForm(request);
-        if (rfc.getErrors() == null) {
+        if (rfc.getErrors().isEmpty()) {
             UserDAO udao = new UserDAO();
             udao.create(usr);
         }

@@ -38,6 +38,13 @@ public class RegisterFormChecker {
         user.setEmail(email);
         user.setPassword(pwd);
 
+        /* Checks name */
+        try {
+            nameCheck(name);
+        } catch (FormException e) {
+            errors.put(FIELD_NAME, e.getMessage());
+        }
+
         /* Checks email */
         try {
             emailCheck(email);
@@ -50,13 +57,6 @@ public class RegisterFormChecker {
             pwdCheck(pwd, conf);
         } catch (FormException e) {
             errors.put(FIELD_PWD, e.getMessage());
-        }
-
-        /* Checks name */
-        try {
-            nameCheck(name);
-        } catch (FormException e) {
-            errors.put(FIELD_NAME, e.getMessage());
         }
 
         /* Inits result */

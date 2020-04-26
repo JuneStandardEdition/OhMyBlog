@@ -7,9 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * ************************************************
- * @author June
- *************************************************
+ * @author June 
  */
 public class SQLConnection {
 
@@ -26,6 +24,11 @@ public class SQLConnection {
     }
 
     public static Connection getInstance() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SQLConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (c == null) {
             try {
                 c = DriverManager.getConnection(url, login, password);
@@ -40,5 +43,5 @@ public class SQLConnection {
     public static String getPassword() {
         return password;
     }
-   
+
 }
