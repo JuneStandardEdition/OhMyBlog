@@ -22,7 +22,7 @@
                 <li><a href="/Global/commentManager">Comments</a></li>
             </ul>
         </div>
-        <div>
+        <div id="form_div">
             <form method="post" action="connexion">
                 <fieldset>
                     <legend>Edit Article</legend>
@@ -34,7 +34,7 @@
                     <input type="textarea" id="content" name="content" value="" size="200" maxlength="5000" placeholder="Type your article..." />
                     <span class="erreur">${form.erreurs['content']}</span>
                     <br />
-                    <input type="submit" value="Create" class="sansLabel" />
+                    <input type="submit" value="Send" class="sansLabel" />
                     <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
                     <%-- Vérification de la présence d'un objet utilisateur en session --%>
                     <c:if test="${!empty sessionScope.sessionUtilisateur}">

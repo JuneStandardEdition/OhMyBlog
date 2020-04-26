@@ -12,8 +12,8 @@
         <style><jsp:include page="/styles/global.css" /></style>
     </head>
     <body>
-        <jsp:include page="/WEB-INF/footer.jsp" />
-        <h1>TODO: Home page</h1>
+        <jsp:include page="/WEB-INF/header.jsp" />
+        <h1>Home</h1>
         <h2>${requestScope.article1.titre}</h2>
         <p>${requestScope.article1.contenu}</p>
         <p>score=${requestScope.article1.score}</p><br><br>

@@ -13,11 +13,11 @@ import java.util.logging.Logger;
  */
 public class SQLConnection {
 
-    private static final String host = "wp.ldnr.fr";
+    private static final String host = "127.0.0.1";
     private static final String port = "3306";
-    private static final String base = "aaa";
-    private static final String login = "groupe4";
-    private static final String password = "ahngaa7kae7dahgoPhei6mieM";
+    private static final String base = "ohmyblog";
+    private static final String login = "ohmyblog";
+    private static final String password = "1234512345";
     private static final String url = "jdbc:mysql://" + host + ":" + port + "/" + base;
     private static Connection c = null;
 

@@ -29,7 +29,7 @@ public class Admin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
+        /*HttpSession session = request.getSession();
         boolean isAdmin = (boolean) session.getAttribute("admin");
         if (!isAdmin) {
             response.sendRedirect("/index");
@@ -37,7 +37,7 @@ public class Admin extends HttpServlet {
         }
         UserDAO udao = new UserDAO();
         List<User> users = udao.getAll();
-        request.setAttribute("users", users);
+        request.setAttribute("users", users);*/
         this.getServletContext().getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
 

@@ -64,3 +64,8 @@ footer {
     background-color: #111111;
     color: white;
 }
+
+#form_div {
+    margin-left: 20px;
+    margin-right: 20px;
+}

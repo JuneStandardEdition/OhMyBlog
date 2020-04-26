@@ -24,9 +24,6 @@
                 <li><a href="commentManager">Comments</a></li>
             </ul>
         </div>
-        <c:forEach items="${requestScope.users}" var="user">
-            <span><p>name: ${user.name} | email: ${user.email}</p></span>
-        </c:forEach>
         <jsp:include page="/WEB-INF/footer.jsp" />
         <!-- /c:if
         c:otherwise
