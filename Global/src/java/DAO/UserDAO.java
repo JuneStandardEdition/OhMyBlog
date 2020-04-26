@@ -114,8 +114,24 @@ public class UserDAO implements DAO<User> {
             PreparedStatement pstmt = CONNEXION.prepareStatement(req);
             pstmt.setString(1, name);
             ResultSet res = pstmt.executeQuery();
-            if (res.first() && res.getString("password") == pwd) {
+            if (res.first() && res.getString("password").matches(pwd)) {
                 b = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return b;
+    }
+
+    public boolean isUserAdmin(String name) {
+        boolean b = false;
+        try {
+            String req = "SELECT * FROM user WHERE name = ?";
+            PreparedStatement pstmt = CONNEXION.prepareStatement(req);
+            pstmt.setString(1, name);
+            ResultSet res = pstmt.executeQuery();
+            if (res.first()) {
+                b = res.getBoolean("isAdmin");
             }
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);

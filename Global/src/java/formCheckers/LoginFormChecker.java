@@ -17,24 +17,26 @@ public class LoginFormChecker {
     private String result; // Global result
 
     public User checkForm(HttpServletRequest request) {
+        UserDAO udao = new UserDAO();
         String name = request.getParameter("name");
         String pwd = request.getParameter("password");
 
         User usr = new User();
 
         try {
-            checkName(name);
+            checkName(udao, name);
         } catch (Exception e) {
             setError(FIELD_NAME, e.getMessage());
         }
         usr.setName(name);
 
         try {
-            checkPwd(name, pwd);
+            checkPwd(udao, name, pwd);
         } catch (Exception e) {
             setError(FIELD_PWD, e.getMessage());
         }
         usr.setPassword(pwd);
+        usr.setIsAdmin(udao.isUserAdmin(name));
 
         if (errors.isEmpty()) {
             result = "Connected";
@@ -53,8 +55,7 @@ public class LoginFormChecker {
         return result;
     }
 
-    private void checkName(String name) throws Exception {
-        UserDAO udao = new UserDAO();
+    private void checkName(UserDAO udao, String name) throws Exception {
         if (name == null) {
             throw new Exception("Please type your username.");
         }
@@ -63,12 +64,13 @@ public class LoginFormChecker {
         }
     }
 
-    private void checkPwd(String name, String pwd) throws Exception {
-        UserDAO udao = new UserDAO();
+    private void checkPwd(UserDAO udao, String name, String pwd) throws Exception {
         if (pwd == null) {
             throw new Exception("Please type your password.");
         }
-        udao.isPwdRight(name, pwd);
+        if (!udao.isPwdRight(name, pwd)) {
+            throw new Exception("Wrong username or password.");
+        }
     }
     
     private void setError(String field, String message) {

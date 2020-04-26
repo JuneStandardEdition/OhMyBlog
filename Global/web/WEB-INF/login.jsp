@@ -14,10 +14,10 @@
     </head>
     <body>
         <jsp:include page="/WEB-INF/header.jsp" />
-        <form action="<c:url value="/login/" />" method="POST">
+        <form action="<c:url value="login" />" method="POST">
             Username: <input name="name" type="text" value="${requestScope.user.name}" />
             <span>${requestScope.form.errors.name}</span><br>
-            Password: <input name="password" type="text" value="${requestScope.user.password}" />
+            Password: <input name="password" type="password" value="${requestScope.user.password}" />
             <span>${requestScope.form.errors.password}</span><br>
             <input type="submit" value="Login" />
         </form>

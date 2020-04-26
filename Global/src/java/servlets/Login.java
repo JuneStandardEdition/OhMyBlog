@@ -44,16 +44,17 @@ public class Login extends HttpServlet {
         LoginFormChecker lfc = new LoginFormChecker();
         User user = lfc.checkForm(request);
         HttpSession session = request.getSession();
+        
         if (lfc.getErrors().isEmpty()) {
-            // Valid => Enters session
-            session.setAttribute("session", user);
-            session.setAttribute("admin", true);
+            // Valid
+            session.setAttribute("userSession", user);
         } else {
-            // Invalid => Kicked
-            session.invalidate();
+            // Invalid
+            session.setAttribute("userSession", null);
         }
         request.setAttribute("user", user);
         request.setAttribute("form", lfc);
+        session.setAttribute("admin", user.isIsAdmin());
         this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 

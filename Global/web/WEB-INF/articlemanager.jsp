@@ -15,7 +15,7 @@
     <body>
         <jsp:include page="/WEB-INF/header.jsp" />
         <h1>Administration Panel: Article Manager</h1>
-        <c:if test="${request.getProperty(isAdmin) == true}">
+        <c:if test="${sessionScope}">
             <div id="adminTab">
                 <ul>
                     <li><a href="/Global/userManager">Users</a></li>
