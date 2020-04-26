@@ -1,10 +1,13 @@
 package beans;
 
+import java.io.Serializable;
+
 /**
  * @author June
  */
-public class User {
+public class User implements Serializable {
 
+    private final static long serialVersionUID = 1L;
     private String name;
     private String email;
     private String password;
@@ -51,5 +54,5 @@ public class User {
     public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
-    
+
 }

@@ -41,13 +41,13 @@ public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RegisterFormChecker rfc = new RegisterFormChecker();
-        UserDAO udao = new UserDAO();
         User usr = rfc.checkForm(request);
-        request.setAttribute("form", rfc);
-        request.setAttribute("user", usr);
-        if (rfc.getErrors().size() == 0) {
+        if (rfc.getErrors() == null) {
+            UserDAO udao = new UserDAO();
             udao.create(usr);
         }
+        request.setAttribute("form", rfc);
+        request.setAttribute("user", usr);
         this.getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
