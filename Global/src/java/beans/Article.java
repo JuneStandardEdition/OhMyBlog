@@ -23,6 +23,11 @@ public class Article implements Serializable {
         this.score = score;
     }
 
+    public Article(String titre, String contenu) {
+        this.titre = titre;
+        this.contenu = contenu;
+    }
+
     public Integer getId() {
         return id;
     }

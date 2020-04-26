@@ -1,5 +1,6 @@
 package servlets;
 
+import DAO.ArticleDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,7 +30,6 @@ public class ArticleManager extends HttpServlet {
         this.getServletContext().getRequestDispatcher("/WEB-INF/articlemanager.jsp").forward(request, response);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -55,6 +55,11 @@ public class ArticleManager extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ArticleDAO adao = new ArticleDAO();
+        beans.Article a = new beans.Article();
+        a.setTitre((String) request.getAttribute("title"));
+        a.setContenu((String) request.getAttribute("content"));
+        adao.create(a);
         processRequest(request, response);
     }
 
@@ -66,6 +71,6 @@ public class ArticleManager extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }
