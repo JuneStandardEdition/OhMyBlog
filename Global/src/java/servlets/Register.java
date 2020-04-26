@@ -1,7 +1,8 @@
 package servlets;
 
+import beans.User;
 import java.io.IOException;
-import java.io.PrintWriter;
+import formCheckers.RegisterFormChecker;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,21 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 public class Register extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -40,7 +26,7 @@ public class Register extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
     /**
@@ -54,7 +40,12 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        RegisterFormChecker rfc = new RegisterFormChecker();
+        User usr = rfc.checkForm(request);
+        
+        request.setAttribute("form", rfc);
+        request.setAttribute("user", usr);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
     /**
@@ -65,6 +56,6 @@ public class Register extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }
