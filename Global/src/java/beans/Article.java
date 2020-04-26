@@ -13,6 +13,16 @@ public class Article implements Serializable {
     private String contenu;
     private int score;
 
+    public Article() {
+    }
+
+    public Article(Integer id, String titre, String contenu, int score) {
+        this.id = id;
+        this.titre = titre;
+        this.contenu = contenu;
+        this.score = score;
+    }
+
     public Integer getId() {
         return id;
     }
