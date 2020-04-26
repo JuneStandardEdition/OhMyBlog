@@ -24,14 +24,14 @@ public class Article extends HttpServlet {
             throws ServletException, IOException {
         beans.Article article = new beans.Article();
         article.setId(3);
-        article.setTitre("Coucou");
-        article.setContenu("Contenu");
+        article.setTitle("Coucou");
+        article.setContent("Contenu");
         article.setScore(5);
 
         beans.Article article2 = new beans.Article();
         article2.setId(4);
-        article2.setTitre("Corona Vie Russe");
-        article2.setContenu("Le Corona vie Russe est un petit Mamifère d'Asie.");
+        article2.setTitle("Corona Vie Russe");
+        article2.setContent("Le Corona vie Russe est un petit Mamifère d'Asie.");
         article2.setScore(5);
 
         request.setAttribute("article", article);

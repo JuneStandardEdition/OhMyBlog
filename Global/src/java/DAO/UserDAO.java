@@ -89,18 +89,38 @@ public class UserDAO implements DAO<User> {
         return udao;
     }
 
-    /* Fetches an User object if the given email matches with one of the Users email
-       Returns null otherwise */
-    public User findByMail(String email) {
-        List<User> udao = new ArrayList<>();
-        udao = getAll();
-        for (int i = 0; i < udao.size(); i++) {
-            udao.get(i);
-            if (udao.get(i).getEmail().matches(email)) {
-                return udao.get(i);
+    /* Finds an User object if the given name matches with one of the Users name
+       Returns usr = null otherwise */
+    public User findByName(String name) {
+        User usr = null;
+        try {
+            String req = "SELECT * FROM user WHERE name = ?";
+            PreparedStatement pstmt = CONNEXION.prepareStatement(req);
+            pstmt.setString(1, name);
+            ResultSet res = pstmt.executeQuery();
+            if (res.first()) {
+                usr = new User(res.getString("name"));
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return usr;
+    }
+
+    public boolean isPwdRight(String name, String pwd) {
+        boolean b = false;
+        try {
+            String req = "SELECT * FROM user WHERE name = ?";
+            PreparedStatement pstmt = CONNEXION.prepareStatement(req);
+            pstmt.setString(1, name);
+            ResultSet res = pstmt.executeQuery();
+            if (res.first() && res.getString("password") == pwd) {
+                b = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return b;
     }
 
 }

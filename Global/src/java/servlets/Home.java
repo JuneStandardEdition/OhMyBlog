@@ -1,5 +1,6 @@
 package servlets;
 
+import beans.Article;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -25,26 +26,26 @@ public class Home extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        beans.Article article = new beans.Article();
+        Article article = new Article();
         article.setId(3);
-        article.setTitre("Coucou");
-        article.setContenu("Contenu");
+        article.setTitle("Coucou");
+        article.setContent("Contenu");
         article.setScore(5);
 
         request.setAttribute("article1", article);
 
-        beans.Article article2 = new beans.Article();
+        Article article2 = new Article();
         article2.setId(4);
-        article2.setTitre("Corona Vie Russe");
-        article2.setContenu("Le Corona vie Russe est un petit Mamifère d'Asie.");
+        article2.setTitle("Corona Vie Russe");
+        article2.setContent("Le Corona vie Russe est un petit Mammifère d'Asie.");
         article2.setScore(3);
 
         request.setAttribute("article2", article2);
 
-        beans.Article article3 = new beans.Article();
+        Article article3 = new Article();
         article3.setId(5);
-        article3.setTitre("La 9eme planète");
-        article3.setContenu("Un cailloux qui orbite autour du Soleil a été déclaré 9 eme planètes de notre Système Solaire");
+        article3.setTitle("La 9eme planète");
+        article3.setContent("Un caillou qui orbite autour du Soleil a été déclaré 9 eme planète de notre Système Solaire");
         article3.setScore(4);
 
         request.setAttribute("article3", article3);

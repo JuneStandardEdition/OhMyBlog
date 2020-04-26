@@ -1,6 +1,8 @@
 package servlets;
 
 import DAO.ArticleDAO;
+import beans.Article;
+import formCheckers.ArticleFormChecker;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,20 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 public class ArticleManager extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/articlemanager.jsp").forward(request, response);
-    }
-
-    /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -39,7 +27,7 @@ public class ArticleManager extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/articlemanager.jsp").forward(request, response);
     }
 
     /**
@@ -53,12 +41,15 @@ public class ArticleManager extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ArticleDAO adao = new ArticleDAO();
-        beans.Article a = new beans.Article();
-        a.setTitre((String) request.getAttribute("title"));
-        a.setContenu((String) request.getAttribute("content"));
-        adao.create(a);
-        processRequest(request, response);
+        ArticleFormChecker afc = new ArticleFormChecker();
+        Article atl = afc.checkForm(request);
+        if (afc.getErrors().isEmpty()) {
+            ArticleDAO adao = new ArticleDAO();
+            adao.create(atl);
+        }
+        request.setAttribute("form", afc);
+        request.setAttribute("article", atl);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/articlemanager.jsp").forward(request, response);
     }
 
     /**

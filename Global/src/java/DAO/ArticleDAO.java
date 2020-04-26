@@ -38,8 +38,8 @@ public class ArticleDAO implements DAO<Article> {
         try {
             String req = "INSERT INTO article (title, content) VALUES  (?,?)";
             PreparedStatement pstmt = CONNEXION.prepareStatement(req);
-            pstmt.setString(1, a.getTitre());
-            pstmt.setString(2, a.getContenu());
+            pstmt.setString(1, a.getTitle());
+            pstmt.setString(2, a.getContent());
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ArticleDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -63,8 +63,8 @@ public class ArticleDAO implements DAO<Article> {
         try {
             String req = "UPDATE article SET title = ?, content = ? WHERE id = ?";
             PreparedStatement pstmt = CONNEXION.prepareStatement(req);
-            pstmt.setString(1, a.getTitre());
-            pstmt.setString(2, a.getContenu());
+            pstmt.setString(1, a.getTitle());
+            pstmt.setString(2, a.getContent());
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ArticleDAO.class.getName()).log(Level.SEVERE, null, ex);

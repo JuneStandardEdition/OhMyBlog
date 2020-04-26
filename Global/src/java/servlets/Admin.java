@@ -18,29 +18,6 @@ import javax.servlet.http.HttpSession;
 public class Admin extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        /*HttpSession session = request.getSession();
-        boolean isAdmin = (boolean) session.getAttribute("admin");
-        if (!isAdmin) {
-            response.sendRedirect("/index");
-            return;
-        }
-        UserDAO udao = new UserDAO();
-        List<User> users = udao.getAll();
-        request.setAttribute("users", users);*/
-        this.getServletContext().getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
-    }
-
-    /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -51,7 +28,14 @@ public class Admin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        /*HttpSession session = request.getSession();
+        boolean isAdmin = (boolean) session.getAttribute("isAdmin");
+        if (isAdmin) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
+        }*/
+        this.getServletContext().getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
 
     /**
@@ -65,7 +49,7 @@ public class Admin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
 
     /**
@@ -87,5 +71,5 @@ public class Admin extends HttpServlet {
 
     protected void loadCommentManager(HttpServletRequest request, HttpServletResponse response) {
     }
-*/
+     */
 }

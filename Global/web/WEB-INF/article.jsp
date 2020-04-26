@@ -13,8 +13,8 @@
     </head>
     <body>
         <jsp:include page="/WEB-INF/header.jsp" />
-        <h1>${requestScope.article.titre}</h1>
-        <p>${requestScope.article.contenu}</p>
+        <h1>${requestScope.article.title}</h1>
+        <p>${requestScope.article.content}</p>
         <p>score=${requestScope.article.score}</p>
         <jsp:include page="/WEB-INF/footer.jsp" />
     </body>

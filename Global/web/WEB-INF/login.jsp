@@ -15,11 +15,11 @@
     <body>
         <jsp:include page="/WEB-INF/header.jsp" />
         <form action="<c:url value="/login/" />" method="POST">
-            Name: <input name="name" type="text" value="${requestScope.user.name}" />
+            Username: <input name="name" type="text" value="${requestScope.user.name}" />
             <span>${requestScope.form.errors.name}</span><br>
-            Mail: <input name="email" type="text" value="${requestScope.user.email}" />
-            <span>${requestScope.form.errors.email}</span><br>
-            <input type="submit" value="Send" />
+            Password: <input name="password" type="text" value="${requestScope.user.password}" />
+            <span>${requestScope.form.errors.password}</span><br>
+            <input type="submit" value="Login" />
         </form>
         <p>
         <c:if test="${!empty sessionScope.session}"><p>Vous êtes connecté</p></c:if>

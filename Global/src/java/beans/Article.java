@@ -9,59 +9,51 @@ public class Article implements Serializable {
 
     private final static long serialVersionUID = 1L;
     private Integer id;
-    private String titre;
-    private String contenu;
-    private int score;
+    private String title;
+    private String content;
+    private int score = 0;
 
     public Article() {
     }
 
     public Article(Integer id, String titre, String contenu, int score) {
         this.id = id;
-        this.titre = titre;
-        this.contenu = contenu;
+        this.title = titre;
+        this.content = contenu;
         this.score = score;
     }
 
     public Article(String titre, String contenu) {
-        this.titre = titre;
-        this.contenu = contenu;
+        this.title = titre;
+        this.content = contenu;
     }
 
     public Integer getId() {
         return id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getTitre() {
-        return this.titre;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getContenu() {
-        return this.contenu;
-    }
-
-    public int getScore() {
-        return this.score;
-    }
-
-    public void setTitre(String titre) {
-        this.titre = titre;
-    }
-
-    public void setContenu(String contenu) {
-        this.contenu = contenu;
-    }
-
-    public void setNom(String titre) {
-        this.titre = titre;
-    }
-
-    public void setPrenom(String contenu) {
-        this.contenu = contenu;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public void setScore(int score) {
@@ -70,7 +62,7 @@ public class Article implements Serializable {
 
     @Override
     public String toString() {
-        return "Article{" + "id=" + id + ", titre=" + titre + ", contenu=" + contenu + ", score=" + score + '}';
+        return "Article{" + "id=" + id + ", titre=" + title + ", contenu=" + content + ", score=" + score + '}';
     }
 
 }
