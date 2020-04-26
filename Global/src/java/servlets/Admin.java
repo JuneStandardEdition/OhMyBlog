@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 /**
  * @author June
  */
-@WebServlet(name = "Admin")
 public class Admin extends HttpServlet {
 
     /**

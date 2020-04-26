@@ -1,5 +1,6 @@
 package servlets;
 
+import DAO.UserDAO;
 import beans.User;
 import java.io.IOException;
 import formCheckers.RegisterFormChecker;
@@ -12,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author June
  */
-@WebServlet(name = "Register")
 public class Register extends HttpServlet {
 
     /**
@@ -41,10 +41,13 @@ public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RegisterFormChecker rfc = new RegisterFormChecker();
+        UserDAO udao = new UserDAO();
         User usr = rfc.checkForm(request);
-        
         request.setAttribute("form", rfc);
         request.setAttribute("user", usr);
+        if (rfc.getErrors().size() == 0) {
+            udao.create(usr);
+        }
         this.getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 

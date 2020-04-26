@@ -9,6 +9,7 @@
             <li class="header_li"><a href="<c:url value="/article"/>">Articles</a></li>
             <li class="header_li"><a href="<c:url value="/login"/>">Login</a></li>
             <li class="header_li"><a href="<c:url value="/register"/>">Register</a></li>
+            <li class="header_li"><a id="logout" href="<c:url value="/logout"/>">Logout</a></li>
         </ol>
     </div>
 </header>

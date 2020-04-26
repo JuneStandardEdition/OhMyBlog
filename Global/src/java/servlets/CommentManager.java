@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
  * @author June
  */
-@WebServlet(name = "CommentManager")
 public class CommentManager extends HttpServlet {
 
     /**

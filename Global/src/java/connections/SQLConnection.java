@@ -19,9 +19,8 @@ public class SQLConnection {
     private static final String login = "ohmyblog";
     private static final String password = "1234512345";
     private static final String url = "jdbc:mysql://" + host + ":" + port + "/" + base;
-    private static Connection c = null;
+    private static Connection c;
 
-    
     private SQLConnection() {
         // Did you expect a needle?
     }

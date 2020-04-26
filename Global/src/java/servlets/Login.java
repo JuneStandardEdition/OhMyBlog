@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 /**
  * @author June
  */
-@WebServlet(name = "Login")
 public class Login extends HttpServlet {
 
     /**

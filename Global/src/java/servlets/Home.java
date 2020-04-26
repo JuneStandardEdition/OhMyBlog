@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author June
  */
-@WebServlet(name = "Home")
 public class Home extends HttpServlet {
 
     /**

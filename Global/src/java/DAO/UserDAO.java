@@ -1,6 +1,7 @@
 package DAO;
 
 import beans.User;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,8 +15,6 @@ import java.util.logging.Logger;
  * @author June
  */
 public class UserDAO implements DAO<User> {
-
-    public List<User> udao = new ArrayList<>();
 
     @Override
     public User find(Integer id) {
@@ -77,6 +76,7 @@ public class UserDAO implements DAO<User> {
 
     @Override
     public List<User> getAll() {
+        List<User> udao = new ArrayList<>();
         String sqlQuery = "SELECT * FROM user";
         try (Statement stmt = CONNEXION.createStatement()) {
             ResultSet resSetUser = stmt.executeQuery(sqlQuery);
@@ -87,23 +87,17 @@ public class UserDAO implements DAO<User> {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return udao;
-        /*
-        List<User> users = new ArrayList<>();
-        users.add(new User("toto", "toto", "toto", true));
-        users.add(new User("tata", "tata", "tata", true));
-        return users;
-         */
     }
 
     /* Fetches an User object if the given email matches with one of the Users email
        Returns null otherwise */
     public User findByMail(String email) {
-        getAll();
-        User u = new User();
-        for (int i = 0; i < this.udao.size(); i++) {
-            u = udao.get(i);
-            if (u.getEmail().matches(email)) {
-                return u;
+        List<User> udao = new ArrayList<>();
+        udao = getAll();
+        for (int i = 0; i < udao.size(); i++) {
+            udao.get(i);
+            if (udao.get(i).getEmail().matches(email)) {
+                return udao.get(i);
             }
         }
         return null;

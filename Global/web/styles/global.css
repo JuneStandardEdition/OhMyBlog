@@ -69,3 +69,7 @@ footer {
     margin-left: 20px;
     margin-right: 20px;
 }
+
+#logout {
+    color: palegreen;
+}
