@@ -1,8 +1,12 @@
 package servlets;
 
+import DAO.ArticleDAO;
 import beans.Article;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,18 +19,17 @@ import javax.servlet.http.HttpServletResponse;
 public class Home extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        Article article = new Article();
+        /*Article article = new Article();
         article.setId(3);
         article.setTitle("Coucou");
         article.setContent("Contenu");
@@ -45,27 +48,19 @@ public class Home extends HttpServlet {
         Article article3 = new Article();
         article3.setId(5);
         article3.setTitle("La 9eme planète");
-        article3.setContent("Un caillou qui orbite autour du Soleil a été déclaré 9 eme planète de notre Système Solaire");
+        article3.setContent("Un caillou qui orbite autour du Soleil a été déclaré 9e planète de notre Système Solaire");
         article3.setScore(4);
 
-        request.setAttribute("article3", article3);
+        request.setAttribute("article3", article3);*/
 
+        ArticleDAO adao = new ArticleDAO();
+        List<Article> allofem = new ArrayList<>();
+        allofem = adao.getAll();
+        if (!allofem.isEmpty()) {
+            Collections.reverse(allofem);
+        }
+        request.setAttribute("articles", allofem);
         this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     /**
@@ -79,7 +74,7 @@ public class Home extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
     }
 
     /**

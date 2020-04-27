@@ -3,6 +3,7 @@
     Author     : June
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,13 @@
         <jsp:include page="/WEB-INF/header.jsp" />
         <div class="body_content">
             <h1>Home</h1>
+            <c:forEach items="${ articles }" var="atl">
+                <h2>${atl.title}</h2>
+                <p>${atl.content}</p>
+                <p>Score: ${atl.score}</p><br>
+            </c:forEach>
+
+            <!--
             <h2>${requestScope.article1.title}</h2>
             <p>${requestScope.article1.content}</p>
             <p>score=${requestScope.article1.score}</p><br><br>
@@ -25,7 +33,8 @@
 
             <h2>${requestScope.article3.title}</h2>
             <p>${requestScope.article3.content}</p>
-            <p>score=${requestScope.article3.score}</p>
+            <p>score=${requestScope.article3.score}</p>-->
+
         </div>
         <jsp:include page="/WEB-INF/footer.jsp" />
     </body>
