@@ -14,13 +14,19 @@
     </head>
     <body>
         <jsp:include page="/WEB-INF/header.jsp" />
-        <h1>Administration Panel: User Manager</h1>
-        <!-- c:if (User.getProperty(isAdmin) == true) -->
-        <div id="adminTab">
-            <ul>
-                <li><a href="/Global/articleManager">Articles</a></li>
-                <li><a href="/Global/commentManager">Comments</a></li>
-            </ul>
+        <div class="body_content">
+            <h1>Administration Panel: User Manager</h1>
+            <c:if test="${sessionScope.admin}">
+                <div id="adminTab">
+                    <ul>
+                        <li><a href="/Global/articleManager">Articles</a></li>
+                        <li><a href="/Global/commentManager">Comments</a></li>
+                    </ul>
+                </div>
+            </c:if>
+            <c:if test="${!sessionScope.admin}">
+                <p>Really, you have no power here.</p>
+            </c:if>
         </div>
         <jsp:include page="/WEB-INF/footer.jsp" />
         <!-- /c:if

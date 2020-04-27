@@ -15,8 +15,8 @@
     <body>
         <jsp:include page="/WEB-INF/header.jsp" />
         <div class="body_content">
-            <c:if test="${sessionScope.admin}">
             <h1>Administration Panel: Article Manager</h1>
+            <c:if test="${sessionScope.admin}">
                 <div id="adminTab">
                     <ul>
                         <li><a href="/Global/userManager">Users</a></li>

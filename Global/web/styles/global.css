@@ -84,10 +84,12 @@ footer {
     margin: 25px 25px 25px 25px;
 }
 
-h1 {
+.body_content > h1 {
+    display: flex;
     text-decoration: underline black 2px;
+    justify-content: center;
 }
 
 #user_name {
-    color: palegreen;
+    color: lightgrey;
 }

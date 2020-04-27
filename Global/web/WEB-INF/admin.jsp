@@ -16,15 +16,21 @@
     <body>
         <jsp:include page="/WEB-INF/header.jsp" />
         <div class="body_content">
-            <h1>Administration Panel</h1>
-            <!-- c:if (User.getProperty(isAdmin) && ...(isConnected) == true) -->
-            <div id="adminTab">
-                <ul>
-                    <li><a href="userManager">Users</a></li>
-                    <li><a href="articleManager">Articles</a></li>
-                    <li><a href="commentManager">Comments</a></li>
-                </ul>
-            </div>
+            <c:if test="${sessionScope.admin}">
+                <h1>Administration Panel</h1>
+                <!-- c:if (User.getProperty(isAdmin) && ...(isConnected) == true) -->
+                <div id="adminTab">
+                    <ul>
+                        <li><a href="userManager">Users</a></li>
+                        <li><a href="articleManager">Articles</a></li>
+                        <li><a href="commentManager">Comments</a></li>
+                    </ul>
+                </div>
+            </c:if>
+            <c:if test="${!sessionScope.admin}">
+                <p>You're not an administrator.
+                    <a href="<c:url value="/home"/>">Back to the homepage.</a></p>
+            </c:if>
         </div>
         <jsp:include page="/WEB-INF/footer.jsp" />
         <!-- /c:if

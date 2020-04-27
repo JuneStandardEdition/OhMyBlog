@@ -29,30 +29,6 @@ public class Home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        /*Article article = new Article();
-        article.setId(3);
-        article.setTitle("Coucou");
-        article.setContent("Contenu");
-        article.setScore(5);
-
-        request.setAttribute("article1", article);
-
-        Article article2 = new Article();
-        article2.setId(4);
-        article2.setTitle("Corona Vie Russe");
-        article2.setContent("Le Corona vie Russe est un petit Mammifère d'Asie.");
-        article2.setScore(3);
-
-        request.setAttribute("article2", article2);
-
-        Article article3 = new Article();
-        article3.setId(5);
-        article3.setTitle("La 9eme planète");
-        article3.setContent("Un caillou qui orbite autour du Soleil a été déclaré 9e planète de notre Système Solaire");
-        article3.setScore(4);
-
-        request.setAttribute("article3", article3);*/
-
         ArticleDAO adao = new ArticleDAO();
         List<Article> allofem = new ArrayList<>();
         allofem = adao.getAll();
