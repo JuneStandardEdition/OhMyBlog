@@ -54,6 +54,7 @@ public class Login extends HttpServlet {
         }
         request.setAttribute("user", user);
         request.setAttribute("form", lfc);
+        session.setAttribute("name", user.getName());
         session.setAttribute("admin", user.isIsAdmin());
         this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }

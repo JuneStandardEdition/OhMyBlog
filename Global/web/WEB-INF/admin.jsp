@@ -15,14 +15,16 @@
     </head>
     <body>
         <jsp:include page="/WEB-INF/header.jsp" />
-        <h1>Administration Panel</h1>
-        <!-- c:if (User.getProperty(isAdmin) && ...(isConnected) == true) -->
-        <div id="adminTab">
-            <ul>
-                <li><a href="userManager">Users</a></li>
-                <li><a href="articleManager">Articles</a></li>
-                <li><a href="commentManager">Comments</a></li>
-            </ul>
+        <div class="body_content">
+            <h1>Administration Panel</h1>
+            <!-- c:if (User.getProperty(isAdmin) && ...(isConnected) == true) -->
+            <div id="adminTab">
+                <ul>
+                    <li><a href="userManager">Users</a></li>
+                    <li><a href="articleManager">Articles</a></li>
+                    <li><a href="commentManager">Comments</a></li>
+                </ul>
+            </div>
         </div>
         <jsp:include page="/WEB-INF/footer.jsp" />
         <!-- /c:if

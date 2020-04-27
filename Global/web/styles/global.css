@@ -1,13 +1,8 @@
-html , body {
-    height: 100%;
-}
-
 body {
-    display: table;
     width: 100%;
     margin: 0 auto;
-    background-color: lightblue;
-    font-family: Verdana;
+    background-color: lightcyan;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 header {
@@ -58,11 +53,21 @@ header {
 }
 
 footer {
-    display: table-row;
+    position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #111111;
     color: white;
+}
+
+#footer_link {
+    color: palegreen;
+    text-decoration: none;
+}
+
+#footer_link:hover {
+    color: green;
+    text-decoration: none;
 }
 
 #form_div {
@@ -71,5 +76,18 @@ footer {
 }
 
 #logout {
+    color: palegreen;
+}
+
+.body_content {
+    display: block;
+    margin: 25px 25px 25px 25px;
+}
+
+h1 {
+    text-decoration: underline black 2px;
+}
+
+#user_name {
     color: palegreen;
 }
